@@ -1,0 +1,145 @@
+GUI:
+- BASIC GUI 100%
+
+- CUSTOM GUI 0%
+    - BUTTONS
+    - TABS
+    - SLIDERS
+    - TEXT CUSTOM GUI 0%
+
+- LIFE HEALER
+    - LOW PRIORITY
+    - MEDIUM PRIORITY
+    - HIGH PRIORITY
+
+- MANA HEALER
+    - LOW PRIORITY
+    - MEDIUM PRIORITY
+    - HIGH PRIORITY
+
+- PALADIN HEALER
+    - LEVEL 8-19
+        - MANA POTION
+        - HEALTH POTION
+        - EXURA
+        - EXURA + HEALTH POTION
+
+    - LEVEL 20-34
+        - MANA POTION
+        - HEALTH POTION
+        - EXURA
+        - EXURA GRAN
+        - EXURA GRAN + HEALTH POTION
+
+    - LEVEL 35-49
+        - MANA POTION
+        - HEALTH POTION
+        - EXURA
+        - EXURA GRAN
+        - EXURA SAN
+        - EXURA SAN + HEALTH POTION
+
+    - LEVEL 50-59
+        - STRONG MANA POTION
+        - STRONG HEALTH POTION
+        - EXURA GRAN
+        - EXURA SAN
+        - EXURA SAN + STRONG HEALTH POTION
+
+    - LEVEL 60-79
+        - STRONG MANA POTION
+        - STRONG HEALTH POTION
+        - EXURA GRAN
+        - EXURA SAN
+        - EXURA GRAN SAN
+        - EXURA GRAN SAN + STRONG HEALTH POTION
+
+    - LEVEL 80+
+        - GREAT MANA POTION
+        - GREAT SPIRIT POTION
+        - EXURA
+        - EXURA GRAN
+        - EXURA SAN
+        - EXURA GRAN SAN
+        - EXURA GRAN SAN + GREAT SPIRIT POTION
+    
+    - LEVEL 130+
+        - GREAT MANA POTION
+        - ULTIMATE SPIRIT POTION
+        - EXURA GRAN
+        - EXURA SAN
+        - EXURA GRAN SAN
+        - EXURA GRAN SAN + ULTIMATE SPIRIT POTION
+
+- CONDITIONS
+    - ANTI-AFK
+    - EXANA POX
+    - EXANA KOR
+    - EXANA FLAM
+    - EXANA VIS
+    - EXANA MORT
+    
+
+- RINGS
+    - EMPTY RING SLOT
+    - MIGHT RING
+    - BLUE PLASMA
+    - RED PLASMA
+    - GREEN PLASMA
+
+- AMULETS
+    - EMPTY AMULET SLOT
+    - SSA
+    - PENDULET
+    - PLATINUM
+    - EMPTY
+
+- COMBOS
+
+    - PALADIN
+        - RUNES + SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+            - OPTION 4
+        - ONLY SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+
+    - KNIGHT
+        - UTITO + SPELLS
+            - OPTION 1
+            - OPTION 2
+        - ONLY SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+
+    - SORCERER
+        - RUNES + SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+            - OPTION 4
+        - ONLY SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+            - OPTION 4
+
+    - DRUID
+        - RUNES + SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+            - OPTION 4
+        - ONLY SPELLS
+            - OPTION 1
+            - OPTION 2
+            - OPTION 3
+            - OPTION 4
+
+- LOGIN
+
+
