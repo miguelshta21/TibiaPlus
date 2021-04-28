@@ -1,3 +1,13 @@
+IniRead, lifesettings, %A_ScriptDir%\settings.ini, life, vLifeLowPriority vLifeMediumPriority vLifeHighPriority
+IniRead, spellsettings, %A_ScriptDir%\settings.ini, spellshk, vSpellLowPriorityHK vSpellMediumPriorityHK vSpellHighPriorityHK
+IniRead, potionsettings, %A_ScriptDir%\settings.ini, potionshk, vPotionLowPriorityHK vPotionMediumLowPriorityHK vPotionHighPriorityHK
+IniRead, manapotionsettings, %A_ScriptDir%\settings.ini, manapotionhk, vManaPotionHK
+
+
+
+
+
+
 GUI:
 - BASIC GUI 100%
 
