@@ -34,7 +34,19 @@ Return
 
 EnterTibiaPlus:
 
+; READ SETTINGS
 
+IniRead, LifeLowPriority, %A_ScriptDir%\settings.ini, Life, vLifeLowPriority
+IniRead, LifeMediumPriority, %A_ScriptDir%\settings.ini, Life, vLifeMediumPriority
+IniRead, LifeHighPriority, %A_ScriptDir%\settings.ini, Life, vLifeHighPriority
+
+IniRead, SpellLowPriorityHK, %A_ScriptDir%\settings.ini, SpellsHK, vSpellLowPriorityHK
+IniRead, SpellMediumPriorityHK, %A_ScriptDir%\settings.ini, SpellsHK, vSpellMediumPriorityHK
+IniRead, SpellHighPriorityHK, %A_ScriptDir%\settings.ini, SpellsHK, vSpellHighPriorityHK
+
+IniRead, PotionLowPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionLowPriorityHK
+IniRead, PotionMediumPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionMediumPriorityHK
+IniRead, PotionHighPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHighPriorityHK
 
 ; GUI LAYOUT
 
@@ -171,9 +183,23 @@ SettingsChanged:
 	Gui, Submit, NoHide
 return
 
+
+
 SaveSettings:
 Gui, Submit, NoHide
-IniWrite, %LifeLowPriority%, %A_ScriptDir%\settings.ini, teste, numero
+
+IniWrite, %LifeLowPriority%, %A_ScriptDir%\settings.ini, Life, vLifeLowPriority
+IniWrite, %LifeMediumPriority%, %A_ScriptDir%\settings.ini, Life, vLifeMediumPriority
+IniWrite, %LifeHighPriority%, %A_ScriptDir%\settings.ini, Life, vLifeHighPriority
+
+IniWrite, %SpellLowPriorityHK%, %A_ScriptDir%\settings.ini, SpellsHK, vSpellLowPriorityHK
+IniWrite, %SpellMediumPriorityHK%, %A_ScriptDir%\settings.ini, SpellsHK, vSpellMediumPriorityHK
+IniWrite, %SpellHighPriorityHK%, %A_ScriptDir%\settings.ini, SpellsHK, vSpellHighPriorityHK
+
+IniWrite, %PotionLowPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionLowPriorityHK
+IniWrite, %PotionMediumPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionMediumPriorityHK
+IniWrite, %PotionHighPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHighPriorityHK
+
 MsgBox, SETTINGS SAVED
 return
 
