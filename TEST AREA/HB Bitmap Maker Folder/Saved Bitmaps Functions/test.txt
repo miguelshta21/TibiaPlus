@@ -1,0 +1,11 @@
+HB_BITMAP_MAKER(){
+	;Bitmap Created Using: HB Bitmap Maker
+	pBitmap:=Gdip_CreateBitmap( 50 , 50 ) 
+	G := Gdip_GraphicsFromImage( pBitmap )
+	Gdip_SetSmoothingMode( G , 4 )
+	Pen := Gdip_CreatePen( "0xFFFF0000" , 3 )
+	Gdip_DrawEllipse( G , Pen , 0 , -1 , 51 , 50 )
+	Gdip_DeletePen( Pen )
+	Gdip_DeleteGraphics( G )
+	return pBitmap
+}
