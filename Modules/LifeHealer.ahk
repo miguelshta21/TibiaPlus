@@ -7,8 +7,6 @@ If (TurnLifeHealer = 0)
 		}
 Else If (TurnLifeHealer = 1)
 	{
-		MsgBox, HEALER On
-		
 		CoordMode, Pixel, Screen
 		CoordMode, Mouse, Screen
 		SendMode Input
@@ -23,13 +21,13 @@ Else If (TurnLifeHealer = 1)
 
 		If WinActive("ahk_class Qt5QWindowOwnDCIcon")  ;Find out if Tibia is running and opened
 		{
-			ImageSearch, FirstStageX, FirstStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida1%Percent.png		;% LOW PRIORITY LIFE
+			ImageSearch, FirstStageX, FirstStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, %MainFolder%\Images\stats\HP%LifeLowPriority%Percent.png		;% LOW PRIORITY LIFE
 			if (ErrorLevel = 1)
 			{
-			ImageSearch, SecondStageX, SecondStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida2%Percent.png	    ;% MEDIUM PRIORITY LIFE
+			ImageSearch, SecondStageX, SecondStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, %MainFolder%\Images\stats\HP%LifeMediumPriority%Percent.png	    ;% MEDIUM PRIORITY LIFE
 			if (ErrorLevel = 1)
 			{
-			ImageSearch, ThirdStageX, ThirdStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida3%Percent.png		;% HIGH PRIORITY LIFE
+			ImageSearch, ThirdStageX, ThirdStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, %MainFolder%\Images\stats\HP%LifeHighPriority%Percent.png		;% HIGH PRIORITY LIFE
 			if (ErrorLevel = 1)
 			{
 				Send, %SpellHighPriorityHK% ;SPELL HOTKEY HIGH PRIORITY

@@ -6,30 +6,10 @@
 
 SetWorkingDir %A_ScriptDir%
 
+MainFolder = %A_ScriptDir%
+
 Menu, Tray, Icon, Images\Icons\Health_Potion.ico ; Change the tray icon
 I_Icon = Images\Icons\Health_Potion.ico ; Change Icon
-
-;LOGIN ===========================
-	InputBox, uNameTibiaPlus, LOGIN, Enter your username!
-	if uNameTibiaPlus = admin
-		InputBox, uPassTibiaPlus, PASSWORD, Enter your password!, HIDE
-	Else
-		{
-			MsgBox, 48, Incorrect Username, Username not found
-			Goto, LoginClose
-		}
-
-	If uPassTibiaPlus = pass
-		Goto, enterTibiaPlus
-
-	Else
-		Msgbox, 48, Wrong Password, Password incorrect
-
-	LoginClose:
-		ExitApp
-
-Return
-
 
 
 EnterTibiaPlus:
@@ -53,6 +33,7 @@ IniRead, PotionHighPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHig
 
 Gui, Color, ad7b6b
 Gui, Show, w350 h325,Tibia Plus [Alpha 0.1.1]
+ Msgbox, %MainFolder%
 
 
 ;LifeGui =============================================================
@@ -63,13 +44,13 @@ Gui, Show, w350 h325,Tibia Plus [Alpha 0.1.1]
 ;LOW PRIORITY ================================
 	Gui, Add, Text, x10 y30, LOW PRIORITY                                          ;TEXTO EXIBIDO NA GUI
 	Gui, Add, Text, x10 y50, LIFE AMOUNT                                          ;TEXTO EXIBIDO NA GUI
-	Gui, Add, DropDownList, w40 vLifeLowPriority, 5|10||20|30|40|50|60|70|80|90|95         ;LISTA COM AS % DE HEAL
+	Gui, Add, DropDownList, w50 vLifeLowPriority, 5|10||20|30|40|50|60|70|80|90|95
 
 	Gui, Add, Text, x10 y95, SPELL HK                                              ;TEXTO EXIBIDO NA GUI
-	Gui, Add, Hotkey, vSpellLowPriorityHK w50                                                ;HOTKEY HEALER LOW PRIORITY
+	Gui, Add, Hotkey, vSpellLowPriorityHK w50, %SpellLowPriorityHK%                                                ;HOTKEY HEALER LOW PRIORITY
 
 	Gui, Add, Text, x10 y135, POTION HK
-	Gui, Add, Hotkey, vPotionLowPriorityHK w50
+	Gui, Add, Hotkey, vPotionLowPriorityHK w50, %PotionLowPriorityHK%
 ;
 ;MEDIUM PRIORITY ================================
 
@@ -78,10 +59,10 @@ Gui, Show, w350 h325,Tibia Plus [Alpha 0.1.1]
 	Gui, Add, DropDownList, w40 vLifeMediumPriority, 5|10||20|30|40|50|60|70|80|90|95
 
 	Gui, Add, Text, x110 y95, SPELL HK
-	Gui, Add, Hotkey, vSpellMediumPriorityHK w50
+	Gui, Add, Hotkey, vSpellMediumPriorityHK w50, %SpellMediumPriorityHK%
 
 	Gui, Add, Text, x110 y135, POTION HK
-	Gui, Add, Hotkey, vPotionMediumPriorityHK w50
+	Gui, Add, Hotkey, vPotionMediumPriorityHK w50, %PotionMediumPriorityHK%
 ;
 ;HIGH PRIORITY ================================
 
@@ -90,10 +71,10 @@ Gui, Show, w350 h325,Tibia Plus [Alpha 0.1.1]
 	Gui, Add, DropDownList, w40 vLifeHighPriority, 5|10||20|30|40|50|60|70|80|90|95
 
 	Gui, Add, Text, x220 y95, SPELL HK
-	Gui, Add, Hotkey, vSpellHighPriorityHK w50
+	Gui, Add, Hotkey, vSpellHighPriorityHK w50, %SpellHighPriorityHK%
 
 	Gui, Add, Text, x220 y135, POTION HK
-	Gui, Add, Hotkey, vPotionHighPriorityHK w50
+	Gui, Add, Hotkey, vPotionHighPriorityHK w50, %PotionHighPriorityHK%
 ;
 ;MANA HEALER ================================
 	Gui, Tab, 2
@@ -214,3 +195,7 @@ GuiClose:
 
 
 del::ExitApp
+
+
+
+
