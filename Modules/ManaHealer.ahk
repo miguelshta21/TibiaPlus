@@ -29,9 +29,6 @@ Else If (TurnManaHealer = 1)
 			ImageSearch, SecondStageX, SecondStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida2%Percent.png	    ;% MEDIUM PRIORITY LIFE
 			if (ErrorLevel = 1)
 			{
-			ImageSearch, ThirdStageX, ThirdStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida3%Percent.png		;% HIGH PRIORITY LIFE
-			if (ErrorLevel = 1)
-			{
 				Send, %SpellHighPriorityHK% ;SPELL HOTKEY HIGH PRIORITY
 				Sleep 50
 				Send, %PotionHighPriorityHK%	;POTION HOTKEY HIGH PRIORITY
@@ -41,12 +38,6 @@ Else If (TurnManaHealer = 1)
 				Send, %SpellMediumPriorityHK% ;SPELL HOTKEY MEDIUM PRIORITY
 				Sleep 50
 				Send, %PotionMediumPriorityHK%	;POTION HOTKEY MEDIUM PRIORITY
-				Sleep 200
-				goto LifeHealer
-			}
-				Send, %SpellLowPriorityHK% ;SPELL HOTKEY LOW PRIORITY
-				Sleep 50
-				Send, %PotionLowPriorityHK%	;POTION HOTKEY LOW PRIORITY
 				Sleep 200
 				goto LifeHealer
 			}
