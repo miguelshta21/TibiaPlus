@@ -8,6 +8,8 @@ SetWorkingDir %A_ScriptDir%
 
 MainFolder = %A_ScriptDir%
 
+back2 = %A_ScriptDir%\website.jpg
+
 Menu, Tray, Icon, Images\Icons\Health_Potion.ico ; Change the tray icon
 I_Icon = Images\Icons\Health_Potion.ico ; Change Icon
 
@@ -31,83 +33,80 @@ IniRead, PotionHighPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHig
 ; GUI LAYOUT
 
 
-Gui, Color, ad7b6b
-Gui, Show, w350 h325,Tibia Plus [Alpha 0.1.1]
- Msgbox, %MainFolder%
-
+Gui, Main:Color, 4b3e40
+Gui, Main:Show, w700 h450,Tibia Plus [Alpha 0.1.2]
+WinSet, Style, -0xC00000, A
 
 ;LifeGui =============================================================
-	Gui, Font, bold
-	Gui, Add, Tab2, buttons, LIFE|MANA|COMBO|CONDITIONS
-	Gui, Font
+	Gui, Main:Font, bold
+	Gui, Main:Add, Tab, w685 -Background, LIFE|MANA|COMBO|CONDITIONS
+	Gui, Main:Font
 ;
 ;LOW PRIORITY ================================
-	Gui, Add, Text, x10 y30, LOW PRIORITY                                          ;TEXTO EXIBIDO NA GUI
-	Gui, Add, Text, x10 y50, LIFE AMOUNT                                          ;TEXTO EXIBIDO NA GUI
-	Gui, Add, DropDownList, w50 vLifeLowPriority, 5|10||20|30|40|50|60|70|80|90|95
+	Gui, Main:Add, Text, x10 y30, LOW PRIORITY                                          ;TEXTO EXIBIDO NA GUI
+	Gui, Main:Add, Text, x10 y50, LIFE AMOUNT                                          ;TEXTO EXIBIDO NA GUI
+	Gui, Main:Add, DropDownList, w40 vLifeLowPriority, 5|10||20|30|40|50|60|70|80|90|95
 
-	Gui, Add, Text, x10 y95, SPELL HK                                              ;TEXTO EXIBIDO NA GUI
-	Gui, Add, Hotkey, vSpellLowPriorityHK w50, %SpellLowPriorityHK%                                                ;HOTKEY HEALER LOW PRIORITY
+	Gui, Main:Add, Text, x10 y95, SPELL HK                                              ;TEXTO EXIBIDO NA GUI
+	Gui, Main:Add, Hotkey, vSpellLowPriorityHK w50, %SpellLowPriorityHK%                                                ;HOTKEY HEALER LOW PRIORITY
 
-	Gui, Add, Text, x10 y135, POTION HK
-	Gui, Add, Hotkey, vPotionLowPriorityHK w50, %PotionLowPriorityHK%
+	Gui, Main:Add, Text, x10 y135, POTION HK
+	Gui, Main:Add, Hotkey, vPotionLowPriorityHK w50, %PotionLowPriorityHK%
 ;
 ;MEDIUM PRIORITY ================================
 
-	Gui, Add, Text, x+50 y30, MEDIUM PRIORITY                                      
-	Gui, Add, Text, x110 y50, LIFE AMOUNT                                          
-	Gui, Add, DropDownList, w40 vLifeMediumPriority, 5|10||20|30|40|50|60|70|80|90|95
+	Gui, Main:Add, Text, x+50 y30, MEDIUM PRIORITY                                      
+	Gui, Main:Add, Text, x110 y50, LIFE AMOUNT                                          
+	Gui, Main:Add, DropDownList, w40 vLifeMediumPriority, 5|10||20|30|40|50|60|70|80|90|95
 
-	Gui, Add, Text, x110 y95, SPELL HK
-	Gui, Add, Hotkey, vSpellMediumPriorityHK w50, %SpellMediumPriorityHK%
+	Gui, Main:Add, Text, x110 y95, SPELL HK
+	Gui, Main:Add, Hotkey, vSpellMediumPriorityHK w50, %SpellMediumPriorityHK%
 
-	Gui, Add, Text, x110 y135, POTION HK
-	Gui, Add, Hotkey, vPotionMediumPriorityHK w50, %PotionMediumPriorityHK%
+	Gui, Main:Add, Text, x110 y135, POTION HK
+	Gui, Main:Add, Hotkey, vPotionMediumPriorityHK w50, %PotionMediumPriorityHK%
 ;
 ;HIGH PRIORITY ================================
 
-	Gui, Add, Text, x+60 y30, HIGH PRIORITY
-	Gui, Add, Text, x220 y50, LIFE AMOUNT
-	Gui, Add, DropDownList, w40 vLifeHighPriority, 5|10||20|30|40|50|60|70|80|90|95
+	Gui, Main:Add, Text, x+60 y30, HIGH PRIORITY
+	Gui, Main:Add, Text, x220 y50, LIFE AMOUNT
+	Gui, Main:Add, DropDownList, w40 vLifeHighPriority, 5|10||20|30|40|50|60|70|80|90|95
 
-	Gui, Add, Text, x220 y95, SPELL HK
-	Gui, Add, Hotkey, vSpellHighPriorityHK w50, %SpellHighPriorityHK%
+	Gui, Main:Add, Text, x220 y95, SPELL HK
+	Gui, Main:Add, Hotkey, vSpellHighPriorityHK w50, %SpellHighPriorityHK%
 
-	Gui, Add, Text, x220 y135, POTION HK
-	Gui, Add, Hotkey, vPotionHighPriorityHK w50, %PotionHighPriorityHK%
+	Gui, Main:Add, Text, x220 y135, POTION HK
+	Gui, Main:Add, Hotkey, vPotionHighPriorityHK w50, %PotionHighPriorityHK%
 ;
 ;MANA HEALER ================================
-	Gui, Tab, 2
+	Gui, Main:Tab, 2
 
-	Gui, Add, Text, x10 y30, MANA AMOUNT
+	Gui, Main:Add, Text, x10 y30, MANA AMOUNT
 ;
 ;COMBO ATTACKER ================================
-	Gui, Tab, 3
+	Gui, Main:Tab, 3
 
-	Gui, Add, Text, x10 y30, COMBO HOTKEYS
+	Gui, Main:Add, Text, x10 y30, COMBO HOTKEYS
 ;
 ;CONDITIONS ================================
 
-	Gui, Tab, 4
+	Gui, Main:Tab, 4
 
-	Gui, Add, Text, y+, Utamo Vita
-	Gui, Add, Text, y+, Exana Kor
-	Gui, Add, Text, y+, Exana Flam
-	Gui, Add, Text, y+, Exana Mort
-	Gui, Add, Text, y+, Exana Vis
-	Gui, Add, Text, y+, Exana Pox
+	Gui, Main:Add, Text, y+, Utamo Vita
+	Gui, Main:Add, Text, y+, Exana Kor
+	Gui, Main:Add, Text, y+, Exana Flam
+	Gui, Main:Add, Text, y+, Exana Mort
+	Gui, Main:Add, Text, y+, Exana Vis
+	Gui, Main:Add, Text, y+, Exana Pox
 
-	Gui, Tab
+	Gui, Main:Tab
 ;
 ;TURN MODULES ON OR OFF ================================
 
-	Gui, Add, Checkbox, x10 vTurnLifeHealer gSettingsChanged, LIFE
-	Gui, Add, Checkbox, x10 gManaHealer, MANA
-	Gui, Add, Checkbox, x10 gComboAttack, COMBO
-	Gui, Add, Checkbox, x10 gConditionsHealer, CONDITIONS
-
-	Gui, Add, Button, x10 y200 w100 h25 gSaveSettings, SAVE SETTINGS
-	Gui, Submit, nohide 
+	Gui, Main:Add, Checkbox, x10 vTurnLifeHealer gSettingsChanged, LIFE
+	Gui, Main:Add, Checkbox, x10 gManaHealer, MANA
+	Gui, Main:Add, Checkbox, x10 gComboAttack, COMBO
+	Gui, Main:Add, Checkbox, x10 gConditionsHealer, CONDITIONS
+	Gui, Main:Add, Button, xr w100 h25 gSaveSettings, SAVE SETTINGS
 ;
 ;LIFE HEALER MODULE HERE ================================
  Loop{
@@ -161,13 +160,13 @@ SettingsChanged:
 	SetDefaultMouseSpeed, 0
 	SetWinDelay, -1
 	SetControlDelay, -1
-	Gui, Submit, NoHide
+	Gui, Main:Submit, NoHide
 return
 
 
 
 SaveSettings:
-Gui, Submit, NoHide
+Gui, Main:Submit, NoHide
 
 IniWrite, %LifeLowPriority%, %A_ScriptDir%\settings.ini, Life, vLifeLowPriority
 IniWrite, %LifeMediumPriority%, %A_ScriptDir%\settings.ini, Life, vLifeMediumPriority
@@ -195,7 +194,3 @@ GuiClose:
 
 
 del::ExitApp
-
-
-
-
