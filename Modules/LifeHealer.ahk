@@ -2,9 +2,9 @@
 
 LifeHealer:
 If (TurnLifeHealer = 0)
-		{
-			PassthroughTurnLifeHealer =
-		}
+	{
+		PassthroughTurnLifeHealer =
+	}
 Else If (TurnLifeHealer = 1)
 	{
 		CoordMode, Pixel, Screen
@@ -47,7 +47,7 @@ Else If (TurnLifeHealer = 1)
 				Send, %PotionLowPriorityHK%	;POTION HOTKEY LOW PRIORITY
 				Sleep 200
 				goto LifeHealer
-			}
+			}	
 	
 	}
 return

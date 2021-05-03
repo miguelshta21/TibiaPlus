@@ -13,10 +13,19 @@ back2 = %A_ScriptDir%\website.jpg
 Menu, Tray, Icon, Images\Icons\Health_Potion.ico ; Change the tray icon
 I_Icon = Images\Icons\Health_Potion.ico ; Change Icon
 
-
+; START TIBIA PLUS
 EnterTibiaPlus:
 
-; READ SETTINGS
+; FIRST WE INCLUDE ALL THE MODULES
+
+
+;#Include %A_ScriptDir%\Modules\ManaHealer.ahk
+;#Include %A_ScriptDir%\Modules\EquipAmulet.ahk
+;#Include %A_ScriptDir%\Modules\EquipRing.ahk
+;#Include %A_ScriptDir%\Modules\EquipArrow.ahk
+;#Include %A_ScriptDir%\Modules\ComboAttacker.ahk
+
+; READ SETTINGS SAVED IN INI FILE
 
 IniRead, LifeLowPriority, %A_ScriptDir%\settings.ini, Life, vLifeLowPriority
 IniRead, LifeMediumPriority, %A_ScriptDir%\settings.ini, Life, vLifeMediumPriority
@@ -30,6 +39,7 @@ IniRead, PotionLowPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionLowP
 IniRead, PotionMediumPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionMediumPriorityHK
 IniRead, PotionHighPriorityHK, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHighPriorityHK
 
+; READ THE LAYOUT OF THE GUI
 ; GUI LAYOUT
 
 
@@ -103,31 +113,34 @@ WinSet, Style, -0xC00000, A
 ;TURN MODULES ON OR OFF ================================
 
 	Gui, Main:Add, Checkbox, x10 vTurnLifeHealer gSettingsChanged, LIFE
-	Gui, Main:Add, Checkbox, x10 gManaHealer, MANA
-	Gui, Main:Add, Checkbox, x10 gComboAttack, COMBO
-	Gui, Main:Add, Checkbox, x10 gConditionsHealer, CONDITIONS
+	Gui, Main:Add, Checkbox, x10 vTurnManaHealer gSettingsChanged, MANA
+	Gui, Main:Add, Checkbox, x10 vTurnComboAttack gSettingsChanged, COMBO
+	Gui, Main:Add, Checkbox, x10 vTurnConditionsHealer gSettingsChanged, CONDITIONS
 	Gui, Main:Add, Button, xr w100 h25 gSaveSettings, SAVE SETTINGS
 ;
 ;LIFE HEALER MODULE HERE ================================
- Loop{
+
+
 	If (TurnLifeHealer = 0)
-		{
-			PassthroughTurnLifeHealer =
-		}
+			{
+				PassthroughTurnLifeHealer =
+			}
 	Else If (TurnLifeHealer = 1)
-	{
-	 #Include %A_ScriptDir%\Modules\LifeHealer.ahk
-	}
-	}
-;
+		{
+		#Include %A_ScriptDir%\Modules\LifeHealer.ahk
+		}
+
 ;MANA HEALER MODULE HERE ================================
-	ManaHealer:
 
-	SetTimer, ManaHealer, 200
+	If (TurnLifeHealer = 0)
+			{
+				PassthroughTurnLifeHealer =
+			}
+	Else If (TurnLifeHealer = 1)
+		{
+		#Include %A_ScriptDir%\Modules\ManaHealer.ahk
+		}
 
-	ManaHealerChanged:	; Run when the CheckBox changes
-	return
-;
 ;CONDITIONS MODULE HERE ================================
 	ConditionsHealer:
 
@@ -136,14 +149,12 @@ WinSet, Style, -0xC00000, A
 	ConditionsHealerChanged:	; Run when the CheckBox changes
 	return
 
-;
 ;COMBO ATTACK MODULE HERE ================================
 	ComboAttack:
 
 	SetTimer, ComboAttack, 200
 	ComboAttackHelpChanged:	; Run when the CheckBox changes
 	return
-;
 
 
 ;CONFIGS END HERE =========================
@@ -152,14 +163,6 @@ WinSet, Style, -0xC00000, A
 
 SettingsChanged:
 
-	CoordMode, Pixel, Screen
-	CoordMode, Mouse, Screen
-	SendMode Input
-	SetKeyDelay, -1, -1
-	SetMouseDelay, -1
-	SetDefaultMouseSpeed, 0
-	SetWinDelay, -1
-	SetControlDelay, -1
 	Gui, Main:Submit, NoHide
 return
 
@@ -179,6 +182,9 @@ IniWrite, %SpellHighPriorityHK%, %A_ScriptDir%\settings.ini, SpellsHK, vSpellHig
 IniWrite, %PotionLowPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionLowPriorityHK
 IniWrite, %PotionMediumPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionMediumPriorityHK
 IniWrite, %PotionHighPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vPotionHighPriorityHK
+
+IniWrite, %ManaPotionLowPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vManaPotionLowPriorityHK
+IniWrite, %ManaHighPriorityHK%, %A_ScriptDir%\settings.ini, PotionsHK, vManaPotionHighPriorityHK
 
 MsgBox, SETTINGS SAVED
 return

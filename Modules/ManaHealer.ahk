@@ -2,9 +2,9 @@
 
 ManaHealer:
 If (TurnManaHealer = 0)
-		{
-			PassthroughTurnManaHealer =
-		}
+	{
+		PassthroughTurnManaHealer =
+	}
 Else If (TurnManaHealer = 1)
 	{
 		MsgBox, MANA HEALER ON
@@ -23,23 +23,19 @@ Else If (TurnManaHealer = 1)
 
 		If WinActive("ahk_class Qt5QWindowOwnDCIcon")  ;SEARCH FOR TIBIA
 		{
-			ImageSearch, FirstStageX, FirstStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida1%Percent.png		;% LOW PRIORITY LIFE
+			ImageSearch, FirstStageX, FirstStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\MP%ManaLowPriority%Percent.png		;% LOW PRIORITY MANA
 			if (ErrorLevel = 1)
 			{
-			ImageSearch, SecondStageX, SecondStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\HP%Vida2%Percent.png	    ;% MEDIUM PRIORITY LIFE
+			ImageSearch, SecondStageX, SecondStageY, A_ScreenWidth - 368, 0, A_ScreenWidth, A_ScreenHeight + 470, *15, Images\stats\MP%ManaHighPriority%Percent.png	    ;% MEDIUM PRIORITY MANA
 			if (ErrorLevel = 1)
 			{
-				Send, %SpellHighPriorityHK% ;SPELL HOTKEY HIGH PRIORITY
-				Sleep 50
-				Send, %PotionHighPriorityHK%	;POTION HOTKEY HIGH PRIORITY
+				Send, %ManaPotionHighPriorityHK%	;MANA POTION HOTKEY HIGH PRIORITY
 				Sleep 200
-				goto LifeHealer
+				goto ManaHealer
 			}
-				Send, %SpellMediumPriorityHK% ;SPELL HOTKEY MEDIUM PRIORITY
-				Sleep 50
-				Send, %PotionMediumPriorityHK%	;POTION HOTKEY MEDIUM PRIORITY
+				Send, %ManaPotionMediumPriorityHK%	;MANA POTION HOTKEY LOW PRIORITY
 				Sleep 200
-				goto LifeHealer
+				goto ManaHealer
 			}
 	
 	}
